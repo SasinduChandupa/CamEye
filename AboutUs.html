@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CamEye / About Us</title>
+    <link rel="icon" type="image/x-icon" href="Images/logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-fixed bg-center bg-cover"
+    style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(80, 78, 78, 0.5) 50%), url('Images/bg.jpg');">
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-80 px-8 py-4 flex justify-between items-center fixed w-full top-0 z-50">
+        <div class="flex items-center">
+            <img src="Images/CamEye.png" alt="Logo" class="h-10">
+            <h1 class="text-white px-4 text-4xl tracking-wide" style="font-family:fantasy;">CamEye</h1>
+        </div>
+        <div class="hidden md:flex space-x-6 text-white">
+            <a href="index.html" class="hover:text-red-500 transition">Home</a>
+            <a href="about.html" class="text-red-500 font-bold">About Us</a>
+            <a href="product.html" class="hover:text-red-500 transition">Products</a>
+            <a href="#" class="hover:text-red-500 transition">Feedbacks</a>
+            <a href="#" class="bg-white text-black hover:bg-red-500 hover:text-white px-4 py-1 rounded">Login</a>
+        </div>
+        <button id="menu-btn" class="md:hidden text-white text-2xl">&#9776;</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 hidden flex flex-col items-center justify-center space-y-6 text-white z-50">
+        <button id="close-btn" class="absolute top-20 right-5 text-2xl">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="text-red-500 font-bold">About Us</a>
+        <a href="#">Products</a>
+        <a href="#">Feedbacks</a>
+        <a href="#" class="bg-white text-black px-4 py-2 rounded">Login</a>
+    </div>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+        document.getElementById('close-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    </script>
+
+    <!-- Main Content -->
+    <main class="pt-32 px-6 md:px-20 fade-in-up">
+        <section class="text-center mb-12">
+            <h2 class="text-5xl font-bold text-red-500 mb-4">About CamEye</h2>
+            <p class="text-lg max-w-3xl mx-auto text-gray-300">
+                CamEye is your trusted partner in capturing life's best moments. Founded in 2013, we are passionate
+                about
+                providing high-quality cameras, drones, and CCTV solutions for all photography enthusiasts and
+                professionals.
+                Whether you're capturing your travels, protecting your home, or filming your next masterpiece — we’ve
+                got you
+                covered.
+            </p>
+        </section>
+
+        <!-- Our Mission -->
+        <section class="text-center mb-12">
+            <h3 class="text-3xl font-semibold text-red-500 mb-4">Our Mission</h3>
+            <p class="text-gray-300 max-w-3xl mx-auto">
+                To empower creativity and safety through innovative imaging technology. We aim to make professional
+                equipment accessible to everyone — from casual users to professionals — with a focus on affordability,
+                reliability, and excellent customer service.
+            </p>
+        </section>
+
+        <!-- Team Section -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-semibold text-white mb-8 text-center">Our Team</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-32 text-center px-4 sm:px-8 md:px-16">
+                <div class="relative group bg-gray-900/70 rounded-lg p-6 shadow-md">
+                    <img src="Images/p1.avif" alt="Team Member" class="rounded-full h-32 w-32 mx-auto mb-4">
+                    <h4 class="text-xl font-bold text-red-400">Jessy F Silva</h4>
+                    <p class="text-sm text-gray-300">Owner</p>
+
+                    <!-- Hover Popup -->
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-3 bg-gray-800 text-gray-100 text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                        Jessy F Silva is the Owner and Manager of the CamEye shops. Jessy is a wild photographer and has
+                        40 years experience about cameras
+                    </div>
+                </div>
+
+                <div class="relative group bg-gray-900/70 rounded-lg p-6 shadow-md">
+                    <img src="Images/p2.webp" alt="Team Member" class="rounded-full h-32 w-32 mx-auto mb-4">
+                    <h4 class="text-xl font-bold text-red-400">Nethmi Perera</h4>
+                    <p class="text-sm text-gray-300">Sales Manager</p>
+
+                    <!-- Hover Popup -->
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-3 bg-gray-800 text-gray-100 text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                        Nethmi Perera is our Sales Manager has 22 years experiencein feild. 
+                    </div>
+                </div>
+
+                <div class="relative group bg-gray-900/70 rounded-lg p-6 shadow-md">
+                    <img src="Images/p3.png" alt="Team Member" class="rounded-full h-32 w-32 mx-auto mb-4">
+                    <h4 class="text-xl font-bold text-red-400">Kavindi Silva</h4>
+                    <p class="text-sm text-gray-300">Customer Support</p>
+                    <button id="openFormBtn" class="pt-2">
+                        <i class="fa-brands fa-rocketchat fa-2xl" style="color: #fcfdff;"></i>
+                    </button>
+                    <!-- Hover Popup -->
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-3 bg-gray-800 text-gray-100 text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                        Kavindi Silva is our Customer Manager. You can chat with our costomer supporter, please send a massege in below
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="mailFormPopup"
+            class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md relative">
+                <button id="closeFormBtn"
+                    class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl font-bold">&times;</button>
+
+                <h3 class="text-xl font-semibold mb-4 text-center">Send Us a Message</h3>
+
+                <form>
+                    <div class="mb-4">
+                        <label for="number" class="block text-sm font-medium mb-1">Contact number</label>
+                        <input type="number" id="number" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                        <textarea id="message" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            const openBtn = document.getElementById("openFormBtn");
+            const closeBtn = document.getElementById("closeFormBtn");
+            const popup = document.getElementById("mailFormPopup");
+
+            openBtn.addEventListener("click", () => {
+                popup.classList.remove("hidden");
+            });
+
+            closeBtn.addEventListener("click", () => {
+                popup.classList.add("hidden");
+            });
+
+            window.addEventListener("click", (e) => {
+                if (e.target === popup) {
+                    popup.classList.add("hidden");
+                }
+            });
+        </script>
+
+
+
+        <!-- Why Choose Us -->
+        <section class="mb-24 text-center">
+            <h3 class="text-3xl font-semibold text-white mb-6">Why Choose CamEye?</h3>
+            <ul class="space-y-4 text-gray-300 text-lg">
+                <li>✅ Wide range of camera products & accessories</li>
+                <li>✅ Competitive pricing and flexible rentals</li>
+                <li>✅ Friendly customer service & support</li>
+                <li>✅ Trusted by thousands of photographers & businesses</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 text-white py-8 mt-8 px-2 md:px-36">
+        <div class="container mx-auto px-4">
+            <!-- Footer Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Column 1: About Us -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4">About Us</h3>
+                    <p class="text-gray-400">
+                        CamEye is your one-stop destination for all things photography. We offer high-quality cameras,
+                        lenses, and accessories to elevate your photography experience.
+                    </p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-2"><a href="#" class="hover:text-white">Home</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">Products</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">Feedbacks</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-2">cameye00@info@gmail.com</li>
+                        <li class="mb-2">+11 915 654 620</li>
+                        <li class="mb-2">+94 777 542 254</li>
+                        <li class="mb-2">No.24, P&A city, Matara (Main Branch)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 CamEye. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

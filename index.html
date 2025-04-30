@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamEye</title>
+    <link rel="icon" type="image/x-icon" href="Images/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    </style>
+    <style>
+        .image-container img {
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .image-container img.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-fixed bg-center bg-cover"
+    style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(80, 78, 78, 0.5) 50%), url('Images/bg.jpg');">
+    <nav class="bg-black bg-opacity-70 px-8 py-4 flex justify-between items-center fixed w-full top-0 z-50">
+        <div class="flex items-center">
+            <img src="Images/CamEye.png" alt="Logo" class="h-10">
+            <h1 class="text-white px-4 text-4xl tracking-wide" style="font-family:fantasy;">CamEye</h1>
+        </div>
+        <div class="hidden md:flex space-x-6 text-white">
+            <a href="index.html" class="text-red-500 font-bold">Home</a>
+            <a href="AboutUs.html" class="hover:text-red-500 transition">About Us</a>
+            <a href="product.html" class="hover:text-red-500 transition">Products</a>
+            <a href="#" class="hover:text-red-500 transition">Feedbacks</a>
+            <a href="#" class="bg-white text-black hover:bg-red-500 hover:text-white px-4 py-1 rounded">Login</a>
+        </div>
+        <button id="menu-btn" class="md:hidden text-white text-2xl">&#9776;</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 hidden flex flex-col items-center justify-center space-y-6 text-white z-50">
+        <button id="close-btn" class="absolute top-20 right-5 text-2xl">&times;</button>
+        <a href="index.html" class="text-red-500 font-bold">Home</a>
+        <a href="about.html" class="hover:text-red-500 transition">About Us</a>
+        <a href="#" class="hover:text-red-500 transition">Products</a>
+        <a href="#" class="hover:text-red-500 transition">Feedbacks</a>
+        <a href="#" class="bg-white text-black px-4 py-2 rounded">Login</a>
+    </div>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+        document.getElementById('close-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    </script>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-2 px-2 md:px-36">
+        <div class="p-4 flex justify-center items-center image-container pt-64 md:pt-64">
+            <img src="Images/A.png" class="w-auto h-80 md:h-80 lg:h-96 active">
+            <img src="Images/B.png" class="w-auto h-80 md:h-80 lg:h-96">
+            <img src="Images/C.png" class="w-auto h-80 md:h-80 lg:h-96">
+            <img src="Images/D.png" class="w-auto h-80 md:h-80 lg:h-96">
+            <img src="Images/E.png" class="w-auto h-80 md:h-80 lg:h-96">
+            <img src="Images/F.png" class="w-auto h-80 md:h-80 lg:h-96">
+            <img src="Images/G.png" class="w-auto h-80 md:h-80 lg:h-96">
+        </div>
+
+        <script>
+            let currentIndex = 0;
+            const images = document.querySelectorAll('.image-container img');
+
+            function changeImage() {
+                // Remove 'active' class from all images
+                images[currentIndex].classList.remove('active');
+
+                // Increment the index, loop back to 0 when reaching the end
+                currentIndex = (currentIndex + 1) % images.length;
+
+                // Add 'active' class to the next image
+                images[currentIndex].classList.add('active');
+            }
+
+            // Change image every 3 seconds (3000 milliseconds)
+            setInterval(changeImage, 3000);
+        </script>
+        <div class=" justify-center items-center pt-48 md:pt-64">
+            <h1 class="text-6xl md:text-9xl tracking-wide px-4 text-white animate-text-color"
+                style="font-family:serif;">
+                CamEye
+            </h1>
+
+            <style>
+                @keyframes colorChange {
+                    0% {
+                        color: white;
+                    }
+
+                    20% {
+                        color: rgb(158, 5, 5);
+                    }
+
+                    100% {
+                        color: white;
+                    }
+                }
+
+                .animate-text-color {
+                    animation: colorChange 3s infinite ease-in-out;
+                }
+            </style>
+            <div class="flex px-4 text-l md:text-4xl tracking-wide" style="font-family:serif;">
+                <p class="text-white">Capture Your </p>
+                <p class="text-red-500 px-2">Perfect Moments</p>
+            </div>
+            <p class="flex pt-4 px-4 text-l md:text-xl tracking-wide text-white md:text-justify"
+                style="font-family:serif;">Welcome to CamEye, your one-stop destination for all things photography!
+                Whether you're a professional photographer or an enthusiastic hobbyist, we offer a wide range of
+                high-quality cameras, lenses, and accessories to elevate your photography experience. Our carefully
+                curated selection includes the latest models from top brands, ensuring you have access to cutting-edge
+                technology and innovative features. Explore our expert reviews, helpful buying guides, and exceptional
+                customer service, and let us help you capture every moment with precision and clarity. Visit us today
+                and find the perfect gear to bring your vision to life!</p>
+        </div>
+    </div>
+
+    <!-- Items -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 text-white">
+        <div class="bg-black/20 p-4 rounded-lg shadow-md text-center">
+            <h1 class="text-lg font-bold text-red-500" style="font-family:serif;">Digital / Action & Compact Cameras
+            </h1>
+            <p>This type of camera, also called an adventure camera, and digital cinema cameras are designed for
+                professional video production.</p>
+        </div>
+        <div class="bg-black/20 p-4 rounded-lg shadow-md text-center">
+            <h1 class="text-lg font-bold text-red-500" style="font-family:serif;">Drones</h1>
+            <p>Drones equipped with cameras offer unique aerial perspectives, making them popular for landscape
+                photography, videography</p>
+        </div>
+        <div class="bg-black/20 p-4 rounded-lg shadow-md text-center">
+            <h1 class="text-lg font-bold text-red-500" style="font-family:serif;">CCTV Cameras</h1>
+            <p> used for security purposes in places like businesses, homes, and public spaces</p>
+        </div>
+    </div>
+
+    <!-- Rent section -->
+    <div class="px-4 sm:px-8 md:px-16 lg:px-32 pt-8 md:pt-8 flex justify-center animate-slide-up">
+        <div
+            class="relative flex justify-center items-center text-white text-center px-4 py-4 rounded-lg grid grid-cols-1 md:grid-cols-2 bg-black/40">
+
+            <!-- Image Container -->
+            <div class="relative">
+                <img src="Images/rent.jpg" alt="" class="rounded-lg" />
+                <!-- Overlay for Desktop (Right to Left) -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent to-black/80 pointer-events-none hidden md:block">
+                </div>
+                <!-- Overlay for Mobile (Top to Bottom) -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 pointer-events-none block md:hidden">
+                </div>
+            </div>
+
+            <!-- Text Container -->
+            <div class="flex flex-col h-full" style="font-family: serif;">
+                <!-- Heading -->
+                <div class="justify-center items-center">
+                    <h1 class="text-red-500 text-2xl font-bold md:text-4xl">Rent Cameras</h1>
+                    <h1 class="text-white text-xl font-bold md:text-2xl">For Special Occasions</h1><br />
+                    <p class="text-white pb-4">You can now rent cameras, drones, gimbals, and all other camera equipment
+                        from us for days, weeks, or months.</p>
+                    <a href="#" id="openRentForm"
+                        class="px-2 m-4 text-black bg-white hover:bg-red-500 hover:text-white p-2 transition duration-300 rounded-lg font-bold">
+                        Rent Now
+                    </a>
+                </div>
+                <!-- Popup Overlay -->
+                <div id="rentFormModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+                    <!-- Form Container -->
+                    <div class="bg-gray-800/70 p-6 rounded-lg shadow-lg w-full max-w-md relative">
+                        <!-- Close button -->
+                        <button id="closeRentForm"
+                            class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl font-bold">&times;</button>
+
+                        <h2 class="text-2xl font-bold mb-4 text-center">Camera Renting Form</h2>
+                        <form>
+                            <label class="block mb-2 font-semibold">Name</label>
+                            <input type="text" class="w-full p-2 border rounded mb-4" placeholder="Your Name" required>
+
+                            <label class="block mb-2 font-semibold">Camera Type</label>
+                            <input type="text" class="w-full p-2 border rounded mb-4"
+                                placeholder="e.g., DSLR, Mirrorless" required>
+
+                            <label class="block mb-2 font-semibold">Rent Duration (days)</label>
+                            <input type="number" class="w-full p-2 border rounded mb-4" required>
+
+                            <button type="submit"
+                                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <script>
+                    const openBtn = document.getElementById('openRentForm');
+                    const closeBtn = document.getElementById('closeRentForm');
+                    const modal = document.getElementById('rentFormModal');
+
+                    openBtn.addEventListener('click', function (e) {
+                        e.preventDefault(); // Prevent page jump
+                        modal.classList.remove('hidden');
+                    });
+
+                    closeBtn.addEventListener('click', function () {
+                        modal.classList.add('hidden');
+                    });
+
+                    // Optional: close when clicking outside the form
+                    window.addEventListener('click', function (e) {
+                        if (e.target === modal) {
+                            modal.classList.add('hidden');
+                        }
+                    });
+                </script>
+
+
+                <!-- Locations (Pushed to Bottom) -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 mt-auto pt-16 md:pt-0">
+                    <!-- Galle -->
+                    <div class="p-4 rounded-lg  items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-red-500 text-2xl mr-2"></i>
+                        <span class="text-white text-lg">Galle</span>
+                        <div class="text-gray-400 text-xs">
+                            <p>No.182/A, Dickson Junction, Main st, Galle</p>
+                        </div>
+                    </div>
+
+                    <!-- Colombo -->
+                    <div class="p-4 rounded-lg items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-red-500 text-2xl mr-2"></i>
+                        <span class="text-white text-lg">Colombo</span>
+                        <div class="text-gray-400 text-xs">
+                            <p>No.18/2/B, Aloka bulding, Pettah</p>
+                        </div>
+                    </div>
+
+                    <!-- Matara -->
+                    <div class="p-4 rounded-lg items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-red-500 text-2xl mr-2"></i>
+                        <span class="text-white text-lg">Matara</span>
+                        <div class="text-gray-400 text-xs">
+                            <p>No.24, P&A city, Matara</p>
+                        </div>
+                    </div>
+
+                    <!-- Kandy -->
+                    <div class="p-4 rounded-lg items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-red-500 text-2xl mr-2"></i>
+                        <span class="text-white text-lg">Kandy</span>
+                        <div class="text-gray-400 text-xs">
+                            <p>No.17/8/2, KCC, Kandy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        @keyframes slide-up {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-slide-up {
+            animation: slide-up 1s ease-out forwards;
+        }
+    </style>
+    <script>
+        module.exports = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                    animation: {
+                        slideUp: 'slideUp 1s ease-out forwards',
+                    },
+                },
+            },
+            plugins: [],
+        };
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 text-white py-8 mt-8 px-2 md:px-36">
+        <div class="container mx-auto px-4">
+            <!-- Footer Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Column 1: About Us -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4">About Us</h3>
+                    <p class="text-gray-400">
+                        CamEye is your one-stop destination for all things photography. We offer high-quality cameras,
+                        lenses, and accessories to elevate your photography experience.
+                    </p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-2"><a href="#" class="hover:text-white">Home</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">Products</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-white">Feedbacks</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-2">cameye00@info@gmail.com</li>
+                        <li class="mb-2">+11 915 654 620</li>
+                        <li class="mb-2">+94 777 542 254</li>
+                        <li class="mb-2">No.24, P&A city, Matara (Main Branch)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 CamEye. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
