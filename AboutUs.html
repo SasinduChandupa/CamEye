@@ -43,7 +43,8 @@
             <a href="about.html" class="text-red-500 font-bold">About Us</a>
             <a href="product.html" class="hover:text-red-500 transition">Products</a>
             <a href="feedback.html" class="hover:text-red-500 transition">Feedbacks</a>
-            <a href="#" class="bg-white text-black hover:bg-red-500 hover:text-white px-4 py-1 rounded">Login</a>
+            <a href="#" onclick="toggleLoginModal()"
+                class="bg-white text-black hover:bg-red-500 hover:text-white px-4 py-1 rounded">Login</a>
         </div>
         <button id="menu-btn" class="md:hidden text-white text-2xl">&#9776;</button>
     </nav>
@@ -56,9 +57,30 @@
         <a href="about.html" class="text-red-500 font-bold">About Us</a>
         <a href="product.html" class="hover:text-red-500 transition">Products</a>
         <a href="feedback.html" class="hover:text-red-500 transition">Feedbacks</a>
-        <a href="#" class="bg-white text-black hover:bg-red-500 hover:text-white px-4 py-1 rounded">Login</a>
+        <a href="#" onclick="toggleLoginModal()"
+            class="bg-white text-black hover:bg-red-500 hover:text-white px-4 py-1 rounded">Login</a>
     </div>
-
+    <!-- Login Popup Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+        <div class="bg-white text-black rounded-lg p-6 w-80 shadow-lg relative">
+            <button onclick="toggleLoginModal()"
+                class="absolute top-2 right-3 text-gray-600 hover:text-red-500 text-xl">&times;</button>
+            <h2 class="text-xl font-bold mb-4 text-center">Login</h2>
+            <form>
+                <input type="text" placeholder="Username"
+                    class="w-full mb-3 px-3 py-2 border border-gray-300 rounded" />
+                <input type="password" placeholder="Password"
+                    class="w-full mb-4 px-3 py-2 border border-gray-300 rounded" />
+                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white w-full py-2 rounded">Login</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
     <script>
         document.getElementById('menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.remove('hidden');
@@ -118,7 +140,7 @@
                     <!-- Hover Popup -->
                     <div
                         class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-3 bg-gray-800 text-gray-100 text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                        Nethmi Perera is our Sales Manager has 22 years experiencein feild. 
+                        Nethmi Perera is our Sales Manager has 22 years experiencein feild.
                     </div>
                 </div>
 
@@ -132,7 +154,8 @@
                     <!-- Hover Popup -->
                     <div
                         class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-3 bg-gray-800 text-gray-100 text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                        Kavindi Silva is our Customer Manager. You can chat with our costomer supporter, please send a massege in below
+                        Kavindi Silva is our Customer Manager. You can chat with our costomer supporter, please send a
+                        massege in below
                     </div>
                 </div>
             </div>
